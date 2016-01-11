@@ -1,0 +1,5 @@
+name: Schober newsletter
+type: module
+description: Integrates the newsletter field module with the schober newsletter.
+core: 8.x
+package: Newsletter
