@@ -1,0 +1,7 @@
+nf_schober.settings:
+  path: '/admin/config/services/nf_schober'
+  defaults:
+    _form: 'Drupal\nf_schober\Form\SchoberSettingsForm'
+    _title: 'Schober newsletter'
+  requirements:
+    _permission: 'administer schober settings'

@@ -1,0 +1,5 @@
+nf_schober.settings:
+  title: 'Schober newsletter'
+  parent: system.admin_config_services
+  description: 'Administer the schober newsletter settings on the site.'
+  route_name: nf_schober.settings
