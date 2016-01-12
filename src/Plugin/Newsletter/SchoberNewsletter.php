@@ -23,11 +23,10 @@ class SchoberNewsletter extends NewsletterBase {
   /**
    * {@inheritdoc}
    */
-  public function subscribe($mail, array $additional_data = []) {
+  public function subscribe($mail, $list_id = '', array $additional_data = []) {
     ob_start();
     print_r($additional_data);
     $output = ob_get_clean();
-    drupal_set_message($mail . ' was subscribed to the newsletter. Additional data: ' . $output);
-
+    drupal_set_message($mail . ' was subscribed to the newsletter list ' . $list_id . '. Additional data: ' . $output);
   }
 }

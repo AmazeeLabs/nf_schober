@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ *  Integrates the newsletter field module with the schober newsletter.
+ */
+
+/**
+ * Implements hook_newsletter_field_subscribe_alter().
+ */
+function nf_schober_newsletter_field_subscribe_alter(&$newsletter_data) {
+  $newsletter_data['list_id'] .= '_altered';
+}
