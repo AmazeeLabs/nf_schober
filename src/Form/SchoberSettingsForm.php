@@ -61,6 +61,12 @@ class SchoberSettingsForm extends ConfigFormBase {
       '#title' => t('Double optin'),
       '#default_value' => $config->get('double_optin'),
     );
+    $form['default_key_account_manager'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Default key account manager'),
+      '#description' => t('Please input the key account manager which should be usd by default.'),
+      '#default_value' => $config->get('default_key_account_manager'),
+    );
 
     return parent::buildForm($form, $form_state);
   }
@@ -75,6 +81,7 @@ class SchoberSettingsForm extends ConfigFormBase {
       ->set('client_code', $form_state->getValue('client_code'))
       ->set('ac', $form_state->getValue('ac'))
       ->set('double_optin', $form_state->getValue('double_optin'))
+      ->set('default_key_account_manager', $form_state->getValue('default_key_account_manager'))
       ->save();
 
     parent::submitForm($form, $form_state);
