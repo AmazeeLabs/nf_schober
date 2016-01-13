@@ -56,7 +56,7 @@ class SchoberNewsletter extends NewsletterBase {
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('config.factory')->get('schober.settings'),
+      $container->get('config.factory')->get('nf_schober.settings'),
       $container->get('language_manager'),
       $container->get('request_stack')->getCurrentRequest()
     );

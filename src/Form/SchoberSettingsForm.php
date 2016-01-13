@@ -27,14 +27,14 @@ class SchoberSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getEditableConfigNames() {
-    return array('schober.settings');
+    return array('nf_schober.settings');
   }
 
   /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('schober.settings');
+    $config = $this->config('nf_schober.settings');
 
     $form['post_url'] = array(
       '#type' => 'textfield',
@@ -76,7 +76,7 @@ class SchoberSettingsForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // The current landing page is state, not configuration!
-    $this->config('schober.settings')
+    $this->config('nf_schober.settings')
       ->set('post_url', $form_state->getValue('post_url'))
       ->set('client_code', $form_state->getValue('client_code'))
       ->set('ac', $form_state->getValue('ac'))
