@@ -108,9 +108,9 @@ class SchoberNewsletter extends NewsletterBase {
 
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($curl, CURLOPT_POST, 1);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($post_data));
 
-    curl_exec($curl);
+    $data = curl_exec($curl);
 
     $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
     if ($http_code == 200) {
