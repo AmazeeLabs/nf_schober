@@ -83,7 +83,13 @@ class SchoberNewsletter extends NewsletterBase {
     // will just take the one from the 'account' variable in the URL query, but
     // we should find somehow a way to do this cleaner. If there is no 'account'
     // in the query, we will use the default_key_account_manager setting.
-    $additional_data['Key_Account_Manager'] = $this->request->get('account', $this->schober_config->get('default_key_account_manager'));
+    $key_account = $this->request->get('account', 'default');
+    // We will use the default key account manager in case the 'account' is
+    // empty or is set to default.
+    if (empty($key_account) || $key_account == 'default') {
+      $key_account = $this->schober_config->get('default_key_account_manager');
+    }
+    $additional_data['Key_Account_Manager'] = $key_account;
 
     // The e-mail has to also be a field in the post.
     $additional_data['Email'] = $mail;
