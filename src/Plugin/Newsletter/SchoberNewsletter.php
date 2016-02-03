@@ -76,6 +76,7 @@ class SchoberNewsletter extends NewsletterBase {
     // Add also some fixed parameters.
     $additional_data['xp_sendBackParams'] = 0;
     $additional_data['xp_redirectLP'] = 0;
+    $additional_data['trackId'] = 'null';
 
     $additional_data['Sprache'] = strtoupper($this->language_manager->getCurrentLanguage()->getId());
 
