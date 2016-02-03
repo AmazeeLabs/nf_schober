@@ -90,7 +90,7 @@ class SchoberNewsletter extends NewsletterBase {
     if (empty($key_account) || $key_account == 'default') {
       $key_account = $this->schober_config->get('default_key_account_manager');
     }
-    $additional_data['Key_Account_Manager'] = $key_account;
+    $additional_data['Key_Account_Manager'] = strtoupper($key_account);
 
     // The e-mail has to also be a field in the post.
     $additional_data['Email'] = $mail;
