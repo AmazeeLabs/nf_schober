@@ -7,7 +7,7 @@
 
 namespace Drupal\nf_schober\Plugin\Newsletter;
 
-
+use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Config\Config;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\newsletter_field\Newsletter\NewsletterBase;
@@ -115,6 +115,13 @@ class SchoberNewsletter extends NewsletterBase {
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($curl, CURLOPT_POST, 1);
     curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($post_data));
+
+    // Log the call to schober.
+    ob_start();
+    echo '<pre>';
+    print_r($post_data);
+    $output = ob_get_clean();
+    \Drupal::logger('schober')->debug('Call to schober: @schober_output', array('@schober_output' => new FormattableMarkup($output, array())));
 
     $data = curl_exec($curl);
 
